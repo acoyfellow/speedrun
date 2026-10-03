@@ -1,0 +1,112 @@
+{
+  "audited": [
+    "README.md",
+    "web/index.html",
+    "web/src/App.svelte",
+    "web/public/manifest.webmanifest",
+    "GitHub repo description"
+  ],
+  "cut_or_rewritten": [
+    "Real containers. Real tests. Bluffs get punished. (triad, rewritten)",
+    "Starting a race needs Authorization: Bearer (no longer true, cut)",
+    "speedrun.coy.workers.dev live link (replaced by speedrun.coey.dev)"
+  ],
+  "claims": [
+    {
+      "sentence": "README.md:3 / web/index.html:7 / manifest description: three models race to fix the same bug, and a referee reruns the tests",
+      "proof": "src/config.ts:30-37 roster of 3 models; src/agent.ts:171 rerun = workspace.runTests() then testsPassed"
+    },
+    {
+      "sentence": "Models run on Workers AI through AI Gateway default",
+      "proof": "src/models.ts:9 ai.run(model, inputs, { gateway: { id: gatewayId } }); src/config.ts:19 gatewayId default"
+    },
+    {
+      "sentence": "Moonshot AI Kimi K2.7 Code, Z.ai GLM 5.3, DeepSeek V4 Pro",
+      "proof": "src/config.ts:30,34,37 model ids; vendor names are the ids' publishers (moonshotai, zai-org, deepseek-ai)"
+    },
+    {
+      "sentence": "Clef, made by Cloudflare, sees only raw test output",
+      "proof": "src/config.ts:21 @cf/cloudflare/clef; src/models.ts:19-28 clefState(rawTestOutput); src/agent.ts:172 judge.clef(rerun.output)"
+    },
+    {
+      "sentence": "Clef question text",
+      "proof": "src/config.ts:23"
+    },
+    {
+      "sentence": "Each runner has its own container with bun and git",
+      "proof": "container/Dockerfile:1-2 oven/bun + git; src/race.ts RUNNER.getByName per runner"
+    },
+    {
+      "sentence": "Tools list_files, read_file, write_file, run_tests, declare_done",
+      "proof": "src/agent.ts:55 toolDefinitions; src/agent.ts:183 execute switch"
+    },
+    {
+      "sentence": "BLUFF adds 30 seconds; three bluffs is DNF",
+      "proof": "src/config.ts:13 bluffPenaltyMs 30_000; src/config.ts:15 maxBluffs 3"
+    },
+    {
+      "sentence": "Diffs and splits go to R2 races/<id>/ and Artifacts race-<raceId> branch runner/<id>",
+      "proof": "src/race.ts:305-306 ATTEMPTS.put; src/race.ts:207 ARTIFACTS.create race-; src/race.ts:313 runner/"
+    },
+    {
+      "sentence": "State in RaceRoom, broadcast over WebSocket",
+      "proof": "src/race.ts:72 broadcast; src/race.ts:116 acceptWebSocket; src/core.ts ws route"
+    },
+    {
+      "sentence": "3 races per hour for everyone",
+      "proof": "src/config.ts:1 racesPerHour 3; src/governor.ts decide(); web/src/App.svelte:162"
+    },
+    {
+      "sentence": "1 start per visitor every 10 minutes, keyed by hashed IP",
+      "proof": "src/config.ts:3 clientWindowMs; src/governor.ts decideStart; src/core.ts:33 SHA-256 of cf-connecting-ip"
+    },
+    {
+      "sentence": "Per-IP Workers rate limit refuses bursts",
+      "proof": "src/front.ts:18 START_LIMIT; wrangler.prod.jsonc ratelimits"
+    },
+    {
+      "sentence": "Token cap 600,000 per race, 200,000 per runner, 30 steps",
+      "proof": "src/config.ts:7,9,11"
+    },
+    {
+      "sentence": "10 minute timeout by Durable Object alarm",
+      "proof": "src/config.ts:5 raceTimeoutMs; src/race.ts:107,144 setAlarm"
+    },
+    {
+      "sentence": "Containers sleep after 2 minutes idle",
+      "proof": "src/config.ts:17; src/container.ts:24"
+    },
+    {
+      "sentence": "Cost from per-model prices, excludes container time and Clef",
+      "proof": "src/config.ts costUsd + price fields; no container or Clef cost in code"
+    },
+    {
+      "sentence": "No token is needed to start a race; 429 with retry-after",
+      "proof": "src/core.ts startRace has no auth check; src/core.ts:48-53"
+    },
+    {
+      "sentence": "Race musbl872-f95f71 times, Clef 0.994, reruns passed, cost $0.0177",
+      "proof": "receipts/002-coey-dev.json second_race from GET /api/races/musbl872-f95f71"
+    },
+    {
+      "sentence": "Self-host config has no account ID and no custom domain",
+      "proof": "wrangler-button.jsonc"
+    },
+    {
+      "sentence": "Production is two Workers; core has no public URL",
+      "proof": "wrangler.prod.jsonc services CORE; core/wrangler.prod.jsonc workers_dev false, no routes"
+    },
+    {
+      "sentence": "Button flow not confirmed end to end",
+      "proof": "receipts/004-deploy-button.json verdict"
+    },
+    {
+      "sentence": "Limits footer on page",
+      "proof": "web/src/App.svelte:243-245"
+    },
+    {
+      "sentence": "GitHub description: Three AI models on Workers AI race to fix the same bug in containers, and a referee reruns the tests before a finish counts.",
+      "proof": "same proofs as rows 1-2 and 6"
+    }
+  ]
+}

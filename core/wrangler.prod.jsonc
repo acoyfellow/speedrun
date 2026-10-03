@@ -1,0 +1,23 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "speedrun-core",
+  "account_id": "bfcb6ac5b3ceaf42a09607f6f7925823",
+  "main": "../src/core.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "ai": { "binding": "AI" },
+  "artifacts": [{ "binding": "ARTIFACTS", "namespace": "speedrun" }],
+  "r2_buckets": [{ "binding": "ATTEMPTS", "bucket_name": "speedrun-attempts" }],
+  "containers": [{ "class_name": "RunnerContainer", "image": "../container/Dockerfile", "max_instances": 6, "instance_type": "basic" }],
+  "durable_objects": {
+    "bindings": [
+      { "name": "RACE", "class_name": "RaceRoom" },
+      { "name": "GOVERNOR", "class_name": "Governor" },
+      { "name": "RUNNER", "class_name": "RunnerContainer" }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RaceRoom", "Governor", "RunnerContainer"] }]
+}

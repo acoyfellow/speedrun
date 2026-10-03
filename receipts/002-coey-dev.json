@@ -1,0 +1,220 @@
+{
+  "target": "https://speedrun.coey.dev",
+  "deployed": {
+    "front": "speedrun (wrangler.prod.jsonc), custom domain speedrun.coey.dev, version a9c81537-15d7-4e55-bed3-0fac960f139b",
+    "core": "speedrun-core (core/wrangler.prod.jsonc), RACE_TOKEN rotated and set"
+  },
+  "root_check": "GET https://speedrun.coey.dev -> 200",
+  "race": {
+    "id": "musb4w37-22ca7b",
+    "track": "roman",
+    "synthetic_track": "tracks/roman, a planted-bug repo made for this project",
+    "status": "finished",
+    "replay_url": "https://speedrun.coey.dev/#musb4w37-22ca7b"
+  },
+  "runners": [
+    {
+      "id": "kimi",
+      "vendor": "Moonshot AI",
+      "model": "@cf/moonshotai/kimi-k2.7-code",
+      "runs_on": "Workers AI",
+      "status": "verified",
+      "finalMs": 8724,
+      "bluffs": 0,
+      "costUsd": 0.00487745,
+      "clefScore": 0.9936,
+      "rerunPassed": true,
+      "splits": [
+        {
+          "name": "found_file",
+          "elapsedMs": 2935
+        },
+        {
+          "name": "first_edit",
+          "elapsedMs": 6511
+        },
+        {
+          "name": "tests_green",
+          "elapsedMs": 7311
+        },
+        {
+          "name": "verified",
+          "elapsedMs": 8724
+        }
+      ],
+      "artifact": "artifacts:race-musb4w37-22ca7b#runner/kimi@cca68888ebfd"
+    },
+    {
+      "id": "glm",
+      "vendor": "Z.ai",
+      "model": "@cf/zai-org/glm-5.3",
+      "runs_on": "Workers AI",
+      "status": "verified",
+      "finalMs": 166748,
+      "bluffs": 0,
+      "costUsd": 0.006989199999999999,
+      "clefScore": 0.9937,
+      "rerunPassed": true,
+      "splits": [
+        {
+          "name": "found_file",
+          "elapsedMs": 117037
+        },
+        {
+          "name": "first_edit",
+          "elapsedMs": 119882
+        },
+        {
+          "name": "tests_green",
+          "elapsedMs": 149064
+        },
+        {
+          "name": "verified",
+          "elapsedMs": 166748
+        }
+      ],
+      "artifact": "artifacts:race-musb4w37-22ca7b#runner/glm@5a983d234fd4"
+    },
+    {
+      "id": "deepseek",
+      "vendor": "DeepSeek",
+      "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "runs_on": "Workers AI",
+      "status": "verified",
+      "finalMs": 19302,
+      "bluffs": 0,
+      "costUsd": 0.00964524,
+      "clefScore": 0.9937,
+      "rerunPassed": true,
+      "splits": [
+        {
+          "name": "found_file",
+          "elapsedMs": 4957
+        },
+        {
+          "name": "first_edit",
+          "elapsedMs": 15128
+        },
+        {
+          "name": "tests_green",
+          "elapsedMs": 16299
+        },
+        {
+          "name": "verified",
+          "elapsedMs": 19302
+        }
+      ],
+      "artifact": "artifacts:race-musb4w37-22ca7b#runner/deepseek@d527b158731b"
+    }
+  ],
+  "total_cost_usd": 0.02151189,
+  "referee": {
+    "model": "@cf/cloudflare/clef",
+    "made_by": "Cloudflare",
+    "input": "raw bun test output only"
+  },
+  "own_rerun": {
+    "method": "cp tracks/roman to /tmp, git apply runner diff, bun test",
+    "kimi": "3 tests, 0 fail",
+    "glm": "3 tests, 0 fail",
+    "deepseek": "3 tests, 0 fail"
+  },
+  "containers": "sleepAfter 2m idle; no container calls after race end",
+  "cleanup": {
+    "decision": "kept as demo artifact",
+    "reason": "the site keeps race replays at /#<id> and in GET /api/races; deleting the RaceRoom state would break the public replay",
+    "demo_artifact": true,
+    "stored": [
+      "RaceRoom DO race state",
+      "R2 speedrun-attempts/races/musb4w37-22ca7b/ (race.json, kimi.diff, glm.diff, deepseek.diff)",
+      "Artifacts repo race-musb4w37-22ca7b"
+    ],
+    "contents": "synthetic track diffs only, no local files or logs uploaded"
+  },
+  "previous_attempt": null,
+  "second_race": {
+    "source": "GET https://speedrun.coey.dev/api/races/musbl872-f95f71",
+    "id": "musbl872-f95f71",
+    "track": "slugify",
+    "status": "finished",
+    "totalTokens": 11973,
+    "tokenCap": 600000,
+    "costUsd": 0.017732499999999998,
+    "storage": "artifacts:race-musbl872-f95f71",
+    "judge": {
+      "model": "@cf/cloudflare/clef",
+      "vendor": "Cloudflare",
+      "runs_on": "Workers AI"
+    },
+    "replay_url": "https://speedrun.coey.dev/#musbl872-f95f71",
+    "runners": [
+      {
+        "id": "kimi",
+        "vendor": "Moonshot AI",
+        "model_name": "Kimi K2.7 Code",
+        "model": "@cf/moonshotai/kimi-k2.7-code",
+        "runs_on": "Workers AI",
+        "status": "verified",
+        "finalMs": 7192,
+        "bluffs": 0,
+        "inputTokens": 2666,
+        "outputTokens": 226,
+        "costUsd": 0.0034367,
+        "clefScore": 0.9937,
+        "rerunPassed": true,
+        "artifact": "artifacts:race-musbl872-f95f71#runner/kimi@ebc9373642b0",
+        "splits": {
+          "found_file": 2888,
+          "first_edit": 5108,
+          "tests_green": 5834,
+          "verified": 7192
+        }
+      },
+      {
+        "id": "glm",
+        "vendor": "Z.ai",
+        "model_name": "GLM 5.3",
+        "model": "@cf/zai-org/glm-5.3",
+        "runs_on": "Workers AI",
+        "status": "verified",
+        "finalMs": 142636,
+        "bluffs": 0,
+        "inputTokens": 3264,
+        "outputTokens": 244,
+        "costUsd": 0.0056432,
+        "clefScore": 0.9937,
+        "rerunPassed": true,
+        "artifact": "artifacts:race-musbl872-f95f71#runner/glm@1b928d519595",
+        "splits": {
+          "found_file": 5961,
+          "first_edit": 54823,
+          "tests_green": 127287,
+          "verified": 142636
+        }
+      },
+      {
+        "id": "deepseek",
+        "vendor": "DeepSeek",
+        "model_name": "DeepSeek V4 Pro",
+        "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+        "runs_on": "Workers AI",
+        "status": "verified",
+        "finalMs": 14513,
+        "bluffs": 0,
+        "inputTokens": 5082,
+        "outputTokens": 491,
+        "costUsd": 0.0086526,
+        "clefScore": 0.9937,
+        "rerunPassed": true,
+        "artifact": "artifacts:race-musbl872-f95f71#runner/deepseek@2bab73c1efd0",
+        "splits": {
+          "found_file": 5880,
+          "first_edit": 10695,
+          "tests_green": 12745,
+          "verified": 14513
+        }
+      }
+    ],
+    "note": "Demo artifact. The track is a synthetic planted-bug repo from tracks/slugify. GLM 5.3 verified at 2:22.63."
+  }
+}

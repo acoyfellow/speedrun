@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "speedrun",
+  "account_id": "bfcb6ac5b3ceaf42a09607f6f7925823",
+  "main": "src/front.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "speedrun.coey.dev", "custom_domain": true }],
+  "observability": { "enabled": true },
+  "assets": { "directory": "dist", "binding": "ASSETS", "not_found_handling": "single-page-application", "run_worker_first": ["/api/*"] },
+  "services": [{ "binding": "CORE", "service": "speedrun-core" }],
+  "ratelimits": [
+    { "name": "START_LIMIT", "namespace_id": "4101", "simple": { "limit": 3, "period": 60 } },
+    { "name": "API_LIMIT", "namespace_id": "4102", "simple": { "limit": 120, "period": 60 } }
+  ]
+}

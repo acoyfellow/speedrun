@@ -1,0 +1,35 @@
+{
+  "name": "speedrun",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "bun scripts/gen-tracks.ts",
+    "build": "bun run gen && vite build",
+    "check": "bun run gen && wrangler types -c core/wrangler.prod.jsonc ./worker-configuration.d.ts >/dev/null && tsc -p . && svelte-check --tsconfig ./web/tsconfig.json --fail-on-warnings",
+    "lint": "git submodule update --init --quiet tools/anti-slop && biome check . && oxlint",
+    "format": "biome check --write .",
+    "test": "bun test ./test/",
+    "verify": "bun run check && bun run lint && bun run copy-check && bun run test",
+    "deploy:prod": "bun run build && wrangler deploy -c core/wrangler.prod.jsonc && wrangler deploy -c wrangler.prod.jsonc",
+    "copy-check": "bun scripts/copy-check.ts"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "^0.3.7",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@cloudflare/workers-types": "^5.20261002.1",
+    "@oxlint/plugins": "1.86.0",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/bun": "^1.4.2",
+    "oxlint": "1.86.0",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.2",
+    "wrangler": "^4.147.0"
+  }
+}

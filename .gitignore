@@ -1,0 +1,12 @@
+node_modules
+dist
+.wrangler
+worker-configuration.d.ts
+.pi/
+.guardrail/
+.cursor/
+.DS_Store
+*.swp
+.vscode/
+.idea/
+receipts/lighthouse-*.html

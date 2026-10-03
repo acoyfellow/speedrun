@@ -1,0 +1,50 @@
+{
+  "purpose": "Deploy wrangler-button.jsonc into account bfcb6ac5b3ceaf42a09607f6f7925823 under the throwaway name speedrun-buttontest, as the button would, then delete it.",
+  "config": "wrangler-button.jsonc copied with name speedrun-buttontest, bucket speedrun-buttontest-attempts, artifacts namespace speedrun-buttontest. No D1 migrations exist.",
+  "steps": [
+    "bun run build",
+    "$ npx wrangler r2 bucket create speedrun-buttontest-attempts",
+    "    }",
+    "  ]",
+    "}",
+    "$ npx wrangler deploy -c wrangler-buttontest.jsonc",
+    "Uploaded 4 of 14 assets",
+    "Uploaded 9 of 14 assets",
+    "Uploaded 14 of 14 assets",
+    "\u2728 Success! Uploaded 14 files (1.75 sec)",
+    "Uploaded speedrun-buttontest (5.66 sec)",
+    "\u2502\u200a SUCCESS \u200aCreated application speedrun-buttontest-runnercontainer (Application ID: a03b8d09-a431-46e7-a8cc-78eedaeb9ea5)",
+    "  https://speedrun-buttontest.coy.workers.dev",
+    "Current Version ID: 3090c420-5c6f-407b-aad3-eeb93af879a0"
+  ],
+  "checks": {
+    "GET /": 200,
+    "GET /api/tracks": "200, 3 tracks",
+    "POST /api/races without Authorization": "200, race musd3ipm-1e9354",
+    "race_result": "Containers booted. Every model call failed with AI Gateway error 2021: Insufficient wholesale credits. The race ended with three error runners."
+  },
+  "cleanup": [
+    "$ npx wrangler r2 object delete for races/musd3ipm-1e9354/*",
+    "Deleting object \"races/musd3ipm-1e9354/kimi.diff\" from bucket \"speedrun-buttontest-attempts\".",
+    "Deleting object \"races/musd3ipm-1e9354/kimi.splits.json\" from bucket \"speedrun-buttontest-attempts\".",
+    "Deleting object \"races/musd3ipm-1e9354/glm.diff\" from bucket \"speedrun-buttontest-attempts\".",
+    "Deleting object \"races/musd3ipm-1e9354/glm.splits.json\" from bucket \"speedrun-buttontest-attempts\".",
+    "Deleting object \"races/musd3ipm-1e9354/deepseek.diff\" from bucket \"speedrun-buttontest-attempts\".",
+    "Deleting object \"races/musd3ipm-1e9354/deepseek.splits.json\" from bucket \"speedrun-buttontest-attempts\".",
+    "$ npx wrangler delete -c wrangler-buttontest.jsonc --force",
+    "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+    "Successfully deleted speedrun-buttontest",
+    "$ npx wrangler containers delete a03b8d09-a431-46e7-a8cc-78eedaeb9ea5",
+    "",
+    "$ npx wrangler r2 bucket delete speedrun-buttontest-attempts",
+    "\ud83e\udeb5  Logs were written to \"/Users/jcoeyman/.wrangler/logs/wrangler-2026-10-03_12-24-51_420.log\"",
+    "$ curl workers.dev after delete",
+    "404",
+    "R2 objects deleted with --remote: races/musd3ipm-1e9354/{kimi,glm,deepseek}.{diff,splits.json} and races/musd3ipm-1e9354/race.json",
+    "Deleted bucket speedrun-buttontest-attempts.",
+    "wrangler r2 object get race.json: The specified key does not exist.",
+    "wrangler containers list: no speedrun-buttontest application",
+    "GET https://speedrun-buttontest.coy.workers.dev/ after delete: 404"
+  ],
+  "verdict": "Deploy, assets, API, and race start worked from the root config alone. A full race did not finish because the account had no AI Gateway credits. This does not prove that the Deploy button works."
+}

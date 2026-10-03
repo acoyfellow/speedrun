@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://speedrun.coey.dev/sitemap.xml

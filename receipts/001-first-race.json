@@ -1,0 +1,169 @@
+{
+  "url": "https://speedrun.coy.workers.dev",
+  "worker": "speedrun",
+  "account": "bfcb6ac5b3ceaf42a09607f6f7925823",
+  "judge": {
+    "model": "@cf/cloudflare/clef",
+    "question": "Do these test results show all tests passing?",
+    "input": "raw bun test output only"
+  },
+  "costNote": "Model token cost only, at Workers AI list prices; excludes container and Clef time (Clef input billed at $0.24/M).",
+  "races": [
+    {
+      "raceId": "murbcfq6-d5c174",
+      "track": "roman",
+      "status": "finished",
+      "startedAt": "2026-10-02T18:45:28.058Z",
+      "wallMs": 55040,
+      "totalTokens": 14199,
+      "costUsd": 0.021497,
+      "storage": "artifacts:race-murbcfq6-d5c174",
+      "runners": [
+        {
+          "id": "kimi",
+          "model": "@cf/moonshotai/kimi-k2.7-code",
+          "status": "verified",
+          "finalMs": 9006,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 1977,
+            "first_edit": 5592,
+            "tests_green": 7348,
+            "verified": 9006
+          },
+          "clefScore": 0.9938,
+          "refereeRerunPassed": true,
+          "inputTokens": 3391,
+          "outputTokens": 413,
+          "costUsd": 0.004873,
+          "steps": 5,
+          "artifact": "artifacts:race-murbcfq6-d5c174#runner/kimi@10d07856cf35",
+          "diff": "diff --git a/src/roman.ts b/src/roman.ts\nindex 8a093a1..982d511 100644\n--- a/src/roman.ts\n+++ b/src/roman.ts\n@@ -1,10 +1,16 @@\n const numerals: ReadonlyArray<readonly [number, string]> = [\n   [1000, \"M\"],\n+  [900, \"CM\"],\n   [500, \"D\"],\n+  [400, \"CD\"],\n   [100, \"C\"],\n+  [90, \"XC\"],\n   [50, \"L\"],\n+  [40, \"XL\"],\n   [10, \"X\"],\n+  [9, \"IX\"],\n   [5, \"V\"],\n+  [4, \"IV\"],\n   [1, \"I\"],\n ];\n \n"
+        },
+        {
+          "id": "glm",
+          "model": "@cf/zai-org/glm-5.3",
+          "status": "verified",
+          "finalMs": 52851,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 21405,
+            "first_edit": 38813,
+            "tests_green": 39562,
+            "verified": 52851
+          },
+          "clefScore": 0.9938,
+          "refereeRerunPassed": true,
+          "inputTokens": 3952,
+          "outputTokens": 333,
+          "costUsd": 0.006998,
+          "steps": 5,
+          "artifact": "artifacts:race-murbcfq6-d5c174#runner/glm@284e31d0d9f4",
+          "diff": "diff --git a/src/roman.ts b/src/roman.ts\nindex 8a093a1..982d511 100644\n--- a/src/roman.ts\n+++ b/src/roman.ts\n@@ -1,10 +1,16 @@\n const numerals: ReadonlyArray<readonly [number, string]> = [\n   [1000, \"M\"],\n+  [900, \"CM\"],\n   [500, \"D\"],\n+  [400, \"CD\"],\n   [100, \"C\"],\n+  [90, \"XC\"],\n   [50, \"L\"],\n+  [40, \"XL\"],\n   [10, \"X\"],\n+  [9, \"IX\"],\n   [5, \"V\"],\n+  [4, \"IV\"],\n   [1, \"I\"],\n ];\n \n"
+        },
+        {
+          "id": "deepseek",
+          "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+          "status": "verified",
+          "finalMs": 19341,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 8331,
+            "first_edit": 15470,
+            "tests_green": 16749,
+            "verified": 19341
+          },
+          "clefScore": 0.9937,
+          "refereeRerunPassed": true,
+          "inputTokens": 5519,
+          "outputTokens": 591,
+          "costUsd": 0.009625,
+          "steps": 5,
+          "artifact": "artifacts:race-murbcfq6-d5c174#runner/deepseek@13f50bd24967",
+          "diff": "diff --git a/src/roman.ts b/src/roman.ts\nindex 8a093a1..0d90cbd 100644\n--- a/src/roman.ts\n+++ b/src/roman.ts\n@@ -1,10 +1,16 @@\n const numerals: ReadonlyArray<readonly [number, string]> = [\n   [1000, \"M\"],\n+  [900, \"CM\"],\n   [500, \"D\"],\n+  [400, \"CD\"],\n   [100, \"C\"],\n+  [90, \"XC\"],\n   [50, \"L\"],\n+  [40, \"XL\"],\n   [10, \"X\"],\n+  [9, \"IX\"],\n   [5, \"V\"],\n+  [4, \"IV\"],\n   [1, \"I\"],\n ];\n \n@@ -21,4 +27,4 @@ export function toRoman(value: number): string {\n     }\n   }\n   return out;\n-}\n+}\n\\ No newline at end of file\n"
+        }
+      ]
+    },
+    {
+      "raceId": "murbi9hi-2451b8",
+      "track": "lru",
+      "status": "finished",
+      "startedAt": "2026-10-02T18:50:01.389Z",
+      "wallMs": 31148,
+      "totalTokens": 13950,
+      "costUsd": 0.020521,
+      "storage": "artifacts:race-murbi9hi-2451b8",
+      "runners": [
+        {
+          "id": "kimi",
+          "model": "@cf/moonshotai/kimi-k2.7-code",
+          "status": "verified",
+          "finalMs": 12335,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 4899,
+            "first_edit": 9371,
+            "tests_green": 10663,
+            "verified": 12335
+          },
+          "clefScore": 0.9936,
+          "refereeRerunPassed": true,
+          "inputTokens": 3339,
+          "outputTokens": 331,
+          "costUsd": 0.004496,
+          "steps": 5,
+          "artifact": "artifacts:race-murbi9hi-2451b8#runner/kimi@60f9b0b225d6",
+          "diff": "diff --git a/src/lru.ts b/src/lru.ts\nindex 3d3236c..bbbd882 100644\n--- a/src/lru.ts\n+++ b/src/lru.ts\n@@ -4,7 +4,12 @@ export class LruCache<K, V> {\n   constructor(private readonly capacity: number) {}\n \n   get(key: K): V | undefined {\n-    return this.entries.get(key);\n+    const value = this.entries.get(key);\n+    if (value !== undefined) {\n+      this.entries.delete(key);\n+      this.entries.set(key, value);\n+    }\n+    return value;\n   }\n \n   set(key: K, value: V): void {\n"
+        },
+        {
+          "id": "glm",
+          "model": "@cf/zai-org/glm-5.3",
+          "status": "verified",
+          "finalMs": 22442,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 7148,
+            "first_edit": 10345,
+            "tests_green": 15479,
+            "verified": 22442
+          },
+          "clefScore": 0.9937,
+          "refereeRerunPassed": true,
+          "inputTokens": 3937,
+          "outputTokens": 292,
+          "costUsd": 0.006797,
+          "steps": 5,
+          "artifact": "artifacts:race-murbi9hi-2451b8#runner/glm@0a7089adaf28",
+          "diff": "diff --git a/src/lru.ts b/src/lru.ts\nindex 3d3236c..a687889 100644\n--- a/src/lru.ts\n+++ b/src/lru.ts\n@@ -4,7 +4,13 @@ export class LruCache<K, V> {\n   constructor(private readonly capacity: number) {}\n \n   get(key: K): V | undefined {\n-    return this.entries.get(key);\n+    if (!this.entries.has(key)) {\n+      return undefined;\n+    }\n+    const value = this.entries.get(key)!;\n+    this.entries.delete(key);\n+    this.entries.set(key, value);\n+    return value;\n   }\n \n   set(key: K, value: V): void {\n"
+        },
+        {
+          "id": "deepseek",
+          "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+          "status": "verified",
+          "finalMs": 26891,
+          "bluffs": 0,
+          "penaltyMs": 0,
+          "splits": {
+            "found_file": 13254,
+            "first_edit": 20818,
+            "tests_green": 22938,
+            "verified": 26891
+          },
+          "clefScore": 0.9936,
+          "refereeRerunPassed": true,
+          "inputTokens": 5581,
+          "outputTokens": 470,
+          "costUsd": 0.009228,
+          "steps": 5,
+          "artifact": "artifacts:race-murbi9hi-2451b8#runner/deepseek@cfe45a2ec039",
+          "diff": "diff --git a/src/lru.ts b/src/lru.ts\nindex 3d3236c..e527b98 100644\n--- a/src/lru.ts\n+++ b/src/lru.ts\n@@ -4,7 +4,13 @@ export class LruCache<K, V> {\n   constructor(private readonly capacity: number) {}\n \n   get(key: K): V | undefined {\n-    return this.entries.get(key);\n+    if (!this.entries.has(key)) {\n+      return undefined;\n+    }\n+    const value = this.entries.get(key)!;\n+    this.entries.delete(key);\n+    this.entries.set(key, value);\n+    return value;\n   }\n \n   set(key: K, value: V): void {\n@@ -21,4 +27,4 @@ export class LruCache<K, V> {\n   get size(): number {\n     return this.entries.size;\n   }\n-}\n+}\n\\ No newline at end of file\n"
+        }
+      ]
+    }
+  ]
+}

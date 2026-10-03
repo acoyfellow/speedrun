@@ -1,0 +1,21 @@
+{
+  "project": "speedrun",
+  "url": "https://speedrun.coey.dev",
+  "deployed": false,
+  "verify": "pass",
+  "racesRecorded": [
+    "murbcfq6-d5c174",
+    "murbi9hi-2451b8"
+  ],
+  "verifiedRunners": 6,
+  "bluffsObserved": 0,
+  "storage": [
+    "artifacts:speedrun",
+    "r2:speedrun-attempts"
+  ],
+  "customDomain": "configured in wrangler.jsonc; deploy blocked on wrangler auth",
+  "workers": {
+    "front": "speedrun",
+    "core": "speedrun-core"
+  }
+}
