@@ -30,7 +30,15 @@ export class RunnerClient {
 
   private async call<T extends z.ZodType>(schema: T, path: string, init?: RequestInit): Promise<z.infer<T>> {
     const response = await this.stub.fetch(new Request(`http://runner${path}`, init));
-    const json: unknown = await response.json();
+    const text = await response.text();
+    let json: unknown;
+
+    try {
+      json = JSON.parse(text);
+    } catch {
+      throw new Error(`runner ${path} returned ${response.status}: ${text.slice(0, 160)}`);
+    }
+
     const failure = ErrorResponse.safeParse(json);
 
     if (!response.ok || (failure.success && !schema.safeParse(json).success)) {
@@ -44,8 +52,15 @@ export class RunnerClient {
     return { method, headers: { "content-type": "application/json" }, body: JSON.stringify(payload) };
   }
 
-  init(files: Record<string, string>) {
-    return this.call(InitResponse, "/init", this.post({ files }));
+  async init(files: Record<string, string>, attempts = 3): Promise<z.infer<typeof InitResponse>> {
+    for (let attempt = 1; ; attempt++) {
+      try {
+        return await this.call(InitResponse, "/init", this.post({ files }));
+      } catch (error) {
+        if (attempt >= attempts) throw error;
+        await new Promise((resolve) => setTimeout(resolve, 2000 * attempt));
+      }
+    }
   }
 
   listFiles() {

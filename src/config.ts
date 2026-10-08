@@ -16,8 +16,6 @@ export const maxBluffs = 3;
 
 export const containerSleepAfter = "2m";
 
-export const gatewayId = "default";
-
 export const clefModel = "@cf/cloudflare/clef";
 
 export const clefQuestion = "Do these test results show all tests passing?";
